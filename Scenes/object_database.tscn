@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3fvr1xarwwb8"]
+
+[ext_resource type="Script" path="res://Scripts/obstacles_database.gd" id="1_ni301"]
+[ext_resource type="PackedScene" uid="uid://b1re8b8oa4cwr" path="res://Objects/Obstacles/obstacle1.tscn" id="2_0rewm"]
+[ext_resource type="PackedScene" uid="uid://ce51dj3mkyigl" path="res://Objects/Coins/Coin.tscn" id="3_y5oyd"]
+
+[node name="Objects" type="Node2D"]
+script = ExtResource("1_ni301")
+obstacles_blueprints = [ExtResource("2_0rewm")]
+coin = ExtResource("3_y5oyd")
+
+[node name="CoinShapes" type="Node2D" parent="."]
+visible = false
+
+[node name="CoinShape1" type="Node2D" parent="CoinShapes"]
+
+[node name="Coin" parent="CoinShapes/CoinShape1" instance=ExtResource("3_y5oyd")]
+position = Vector2(-52, -2)
+
+[node name="Coin2" parent="CoinShapes/CoinShape1" instance=ExtResource("3_y5oyd")]
+position = Vector2(51, -1)
+
+[node name="Coin3" parent="CoinShapes/CoinShape1" instance=ExtResource("3_y5oyd")]
+position = Vector2(-1, 70)
+
+[node name="Coin4" parent="CoinShapes/CoinShape1" instance=ExtResource("3_y5oyd")]
+position = Vector2(0, -74)

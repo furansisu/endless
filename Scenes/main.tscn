@@ -1,15 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://6hnrqwtwb4pm"]
+[gd_scene load_steps=9 format=3 uid="uid://6hnrqwtwb4pm"]
 
-[ext_resource type="Script" path="res://Scenes/main.gd" id="1_l8s5j"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_l8s5j"]
 [ext_resource type="Texture2D" uid="uid://pjhn133wkhfl" path="res://Resources/872.jpg" id="1_tqea3"]
 [ext_resource type="PackedScene" uid="uid://tttd5u41r22" path="res://Scenes/ground.tscn" id="2_xnat2"]
 [ext_resource type="PackedScene" uid="uid://wobk104ntsl4" path="res://Scenes/player.tscn" id="4_gw4c4"]
+[ext_resource type="Texture2D" uid="uid://ru8h5fpudnee" path="res://icon.svg" id="5_h5eym"]
+[ext_resource type="Script" path="res://Scripts/path_2d.gd" id="5_xqoce"]
+[ext_resource type="Script" path="res://Scripts/object_manager.gd" id="7_itgtc"]
 
 [sub_resource type="Curve2D" id="Curve2D_n0fe8"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 700, 32, 0, 0, 0, 0, 700, 288)
+"points": PackedVector2Array(0, 0, 0, 0, 691, 24, 0, 0, 0, 0, 734, 99, 0, 0, 0, 0, 875, 91, 0, 0, 0, 0, 700, 288, 0, 0, 0, 0, 795, 231, 0, 0, 0, 0, 700, 32)
 }
-point_count = 2
+point_count = 6
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_l8s5j")
@@ -26,8 +29,23 @@ centered = false
 position = Vector2(110, 199)
 
 [node name="Path2D" type="Path2D" parent="."]
+position = Vector2(1059, -563)
 curve = SubResource("Curve2D_n0fe8")
+script = ExtResource("5_xqoce")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(700, 32)
-rotation = 1.5708
+position = Vector2(691, 24)
+rotation = 1.05022
+
+[node name="Icon" type="Sprite2D" parent="Path2D/PathFollow2D"]
+position = Vector2(1, 0)
+texture = ExtResource("5_h5eym")
+
+[node name="ObjectManager" type="Node2D" parent="."]
+position = Vector2(640, 318)
+script = ExtResource("7_itgtc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(557, 186)
+scale = Vector2(442.478, -45.8696)
+zoom = Vector2(0.5, 0.5)
