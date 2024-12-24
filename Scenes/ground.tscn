@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://tttd5u41r22"]
+
+[ext_resource type="Texture2D" uid="uid://ru8h5fpudnee" path="res://icon.svg" id="1_ywsxh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6n8ra"]
+size = Vector2(1288.5, 63.5)
+
+[node name="Ground" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.188235)
+position = Vector2(63, 382)
+texture = ExtResource("1_ywsxh")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.188235)
+position = Vector2(191, 382)
+texture = ExtResource("1_ywsxh")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.188235)
+position = Vector2(319, 380)
+texture = ExtResource("1_ywsxh")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.188235)
+position = Vector2(449, 380)
+texture = ExtResource("1_ywsxh")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.188235)
+position = Vector2(577, 380)
+texture = ExtResource("1_ywsxh")
+
+[node name="Icon6" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.188235)
+position = Vector2(705, 378)
+texture = ExtResource("1_ywsxh")
+
+[node name="Icon7" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.188235)
+position = Vector2(833, 379)
+texture = ExtResource("1_ywsxh")
+
+[node name="Icon8" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.188235)
+position = Vector2(961, 379)
+texture = ExtResource("1_ywsxh")
+
+[node name="Icon9" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.188235)
+position = Vector2(1089, 377)
+texture = ExtResource("1_ywsxh")
+
+[node name="Icon10" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.188235)
+position = Vector2(1219, 377)
+texture = ExtResource("1_ywsxh")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(643.75, 329)
+shape = SubResource("RectangleShape2D_6n8ra")
