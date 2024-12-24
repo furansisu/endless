@@ -40,11 +40,9 @@ func on_jump_buffer_timeout() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-    if player.is_on_floor():
+    if player.is_on_floor() and state == 1:
         state = 0
-        
-    if state == 0:
-        remaining_jumps = jumps
+        remaining_jumps = jumps 
     
 func _input(event: InputEvent) -> void:
     if event.is_action_pressed("jump"):
