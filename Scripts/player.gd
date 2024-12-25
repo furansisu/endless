@@ -6,8 +6,10 @@ const JUMP_POWER = 500
 @onready var player : CharacterBody2D = $CharacterBody2D
 @onready var attack_point : Area2D = $CharacterBody2D/AttackPoint
 
-var time = 0
+var combo = 0
+var combo_range = 5
 
+var time = 0
 var actions = {
 	"jump": {
 		debounce_length = .2,
@@ -21,6 +23,7 @@ var actions = {
 		debounce_length = 1,
 		debounce = false,
 		buffer = false,
+		last_hit = time,
 		method = Callable(self, "attack")
 	}
 }
@@ -42,12 +45,22 @@ func jump() -> void:
 
 # ATTACK ACTION
 func attack() -> void:
+	var hit_an_object = false
 	for obstacle_area in attack_point.get_overlapping_areas():
 		var obstacle = obstacle_area.get_parent().object_inst
 		if obstacle.object_type == "obstacle":
+			hit_an_object = true
 			obstacle.delete_object()
 		
-	get_tree().create_timer(actions["attack"].debounce_length).timeout.connect(on_debounce_timeout.bind("attack"))
+	if not hit_an_object:
+		combo = 0
+		get_tree().create_timer(actions["attack"].debounce_length).timeout.connect(on_debounce_timeout.bind("attack"))
+	else:
+		if time - actions["attack"].last_time < combo_range:
+			combo += 1
+		actions["attack"].last_time = time
+		on_debounce_timeout("attack")
+	
 
 # TIMEOUTS
 func on_debounce_timeout(action_name):
@@ -60,17 +73,18 @@ func on_buffer_timeout(action_name):
 	var action = actions[action_name]
 	action.buffer = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# PROCESSING EVENTS
 func _process(delta: float) -> void:
 	time += delta
 	if player.is_on_floor():
 		if state == 1 and not actions.jump.debounce:
 			state = 0
 			actions.jump.amount = actions.jump.default_amount
-		
+	if time - actions["attack"].last_time > combo_range:
+		combo = 0
 
 func _input(event: InputEvent) -> void:
-	# Loop through every action and externally handle the debounce and buffer system
+	# Find the action and externally handle the debounce and buffer system
 	for action_name in actions.keys():
 		var action = actions[action_name]
 		if event.is_action_pressed(action_name):
@@ -80,6 +94,7 @@ func _input(event: InputEvent) -> void:
 			elif not action.debounce:
 				action.debounce = true
 				action.method.call()
+			break
 	
 
 func _physics_process(delta: float) -> void:

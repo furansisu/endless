@@ -6,6 +6,7 @@ var main_node: Node2D
 
 var max_life_time = 10
 
+# Sets the object up for instantiation
 func get_new_obstacle(new_parent) -> void:
 	main_node = new_parent.get_parent()
 	var packed_object = ObjectsDatabase.obstacles_blueprints[randi_range(0, ObjectsDatabase.obstacles_blueprints.size() - 1)]
@@ -18,6 +19,7 @@ func get_new_obstacle(new_parent) -> void:
 	
 	object_type = "obstacle"
 
+# Sets a coin up for instantiation
 func get_new_coin(new_parent) -> void:
 	main_node = new_parent.get_parent()
 	var packed_object = ObjectsDatabase.coin
@@ -28,6 +30,7 @@ func get_new_coin(new_parent) -> void:
 	
 	object_type = "coin"
 
+# Sets a coin shape up for instantiation
 func get_new_coin_shape(new_parent) -> void:
 	main_node = new_parent.get_parent()
 	var original_object = ObjectsDatabase.coin_blueprints[randi_range(0, ObjectsDatabase.coin_blueprints.size() - 1)]

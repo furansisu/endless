@@ -3,7 +3,10 @@ extends Node2D
 var game_start : bool = false
 var scroll : float = 0
 var window_size
+
 @export var SCROLL_SPEED : float = 350
+@export var POINTS = 0
+@export var COINS = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

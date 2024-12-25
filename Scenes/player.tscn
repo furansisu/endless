@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://wobk104ntsl4"]
+[gd_scene load_steps=5 format=3 uid="uid://wobk104ntsl4"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_y2nj6"]
+[ext_resource type="Texture2D" uid="uid://ru8h5fpudnee" path="res://icon.svg" id="2_12vtv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ka6on"]
 radius = 20.0
@@ -24,3 +25,8 @@ scale = Vector2(8, 8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AttackPoint"]
 position = Vector2(7, 0)
 shape = SubResource("RectangleShape2D_0qtgq")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-4.76837e-07, -25)
+scale = Vector2(0.316406, 0.429688)
+texture = ExtResource("2_12vtv")

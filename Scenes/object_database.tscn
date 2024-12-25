@@ -25,3 +25,18 @@ position = Vector2(-1, 70)
 
 [node name="Coin4" parent="CoinShapes/CoinShape1" instance=ExtResource("3_y5oyd")]
 position = Vector2(0, -74)
+
+[node name="CoinShape2" type="Node2D" parent="CoinShapes"]
+position = Vector2(-208, -7)
+
+[node name="Coin" parent="CoinShapes/CoinShape2" instance=ExtResource("3_y5oyd")]
+position = Vector2(1, -2)
+
+[node name="Coin2" parent="CoinShapes/CoinShape2" instance=ExtResource("3_y5oyd")]
+position = Vector2(-3, -137)
+
+[node name="Coin3" parent="CoinShapes/CoinShape2" instance=ExtResource("3_y5oyd")]
+position = Vector2(-1, 70)
+
+[node name="Coin4" parent="CoinShapes/CoinShape2" instance=ExtResource("3_y5oyd")]
+position = Vector2(0, -74)
