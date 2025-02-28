@@ -10,16 +10,16 @@ var window_size
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	game_start = true
-	print("Game start")
-	window_size = get_window().size
+    game_start = true
+    print("Game start")
+    window_size = get_window().size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if game_start:
-		scroll += SCROLL_SPEED * delta
-		
-		if scroll > window_size.x:
-			scroll = 0
-		
-		$Ground.position.x = -scroll
+    if game_start:
+        scroll += SCROLL_SPEED * delta
+        
+        if scroll > window_size.x:
+            scroll = 0
+        
+        $Ground.position.x = -scroll

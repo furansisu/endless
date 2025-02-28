@@ -7,7 +7,7 @@ extends Node2D
 @export var coin_blueprints = []
 
 func _ready() -> void:
-	coin_blueprints = coin_shapes.get_children()
+    coin_blueprints = coin_shapes.get_children()
 
 func _process(delta: float) -> void:
-	pass
+    pass
